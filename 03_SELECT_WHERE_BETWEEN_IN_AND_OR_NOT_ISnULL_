@@ -1,0 +1,54 @@
+/*
+	-- Data Retrieval Language DRL
+		-- Syntax : SELECT <set of column names> FROM <table name>.
+		-- Order of execution from left to right.
+        -- Select Keyword can also be used without using from clause
+			--It can be done using dual tables, Dual tables are dummy tables created by MYSQL, 
+				help users to do certain obvious actions without referring to user defined tables.
+                e.g : SELECT 55+11;
+					  SELECT now();
+                      SELCET ucase(); etc.
+*/
+SELECT FIRST_NAME FROM Worker;
+SELECT 44+11;
+SELECT now();
+SELECT ucase('LAKshay');
+
+/*
+	-- WHERE
+		-- Reduce rows based on given conditions.
+        -- E.g., SELECT * FROM <table name> where <condition>
+*/
+SELECT * FROM Worker WHERE SALARY > 100000;
+SELECT * FROM Worker WHERE DEPARTMENT = 'HR';
+
+/*
+	-- BETWEEN
+		--SECLECT * FROM <table name> WHERE <between in condition>
+*/
+
+SELECT * FROM Worker WHERE SALARY BETWEEN 100000 AND 400000; 
+-- 100000 AND 400000 will be inclusive here
+
+/*
+	-- IN
+		-- Reduces OR Conditions
+        -- SELECT * FROM <table name> WHERE <<column-name> IN (set of values) >;
+*/
+
+SELECT * FROM Worker WHERE SALARY IN(100000,300000);
+
+/*
+	AND/OR/NOT
+    -- AND: WHERE cond1 AND cond2
+    -- OR: WHERE cond1 OR cond2
+    -- NOT: WHERE <column name> NOT IN (1,2,3,4);
+*/
+
+SELECT * FROM Worker WHERE DEPARTMENT NOT IN ('HR');
+
+/*
+	IS NULL
+    -- SELECT * FROM <table name> where <column-name> is NULL;
+*/
+SELECT * FROM Worker WHERE DEPARTMENT IS NULL;
